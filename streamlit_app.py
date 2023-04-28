@@ -37,8 +37,7 @@ if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
-
-st.button(on_click=write_pandas(conn, uploaded_file, 'FACT_SPEND_TEST'))
+    st.button(label='Upload File', on_click=write_pandas(conn, uploaded_file, 'FACT_SPEND_TEST'))
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
