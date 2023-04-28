@@ -29,8 +29,8 @@ def run_query(query):
         df = pd.DataFrame(dat, columns=[col[0] for col in cur.description])
         return df
 
-df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
+#df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
-st.dataframe(df)
+#st.dataframe(df)
 
 st.echo(sys.version)
