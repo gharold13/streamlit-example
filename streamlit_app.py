@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 import snowflake.connector
 import sys
+import csv
 from io import StringIO
 from snowflake.connector.pandas_tools import write_pandas
 
@@ -35,6 +36,7 @@ uploaded_file = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
+    csv.reader(uploaded_file, delimiter=',', quotechar='"')
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
     if st.button(label='Upload File'):
@@ -42,8 +44,7 @@ if uploaded_file is not None:
                      df=dataframe, 
                      table_name='FACT_SPEND_TEST', 
                      database=st.secrets['snowflake']['database'], 
-                     schema=st.secrets['snowflake']['schema'],
-                     quote_identifiers=True)
+                     schema=st.secrets['snowflake']['schema'])
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
