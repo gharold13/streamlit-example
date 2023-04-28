@@ -42,7 +42,8 @@ if uploaded_file is not None:
                      df=dataframe, 
                      table_name='FACT_SPEND_TEST', 
                      database=st.secrets['snowflake']['database'], 
-                     schema=st.secrets['snowflake']['schema'])
+                     schema=st.secrets['snowflake']['schema']
+                     quote_identifiers=True)
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
