@@ -38,7 +38,7 @@ if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
     csv.reader(uploaded_file, delimiter=',', quotechar='"')
     columns = ['location', 'campaign', 'spend_date', 'spend']
-    dataframe = pd.read_csv(uploaded_file, header=0, names=columns)
+    dataframe = pd.read_csv(uploaded_file, quoting=3)
     st.write(dataframe)
     if st.button(label='Upload File'):
         write_pandas(conn, 
