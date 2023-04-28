@@ -40,11 +40,12 @@ if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
     if st.button(label='Upload File'):
-        write_pandas(conn, 
-                     df=dataframe, 
-                     table_name='FACT_SPEND_TEST', 
-                     database=st.secrets['snowflake']['database'], 
-                     schema=st.secrets['snowflake']['schema'])
+        print(dataframe)
+        # write_pandas(conn, 
+        #              df=dataframe, 
+        #              table_name='FACT_SPEND_TEST', 
+        #              database=st.secrets['snowflake']['database'], 
+        #              schema=st.secrets['snowflake']['schema'])
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
