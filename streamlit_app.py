@@ -37,16 +37,15 @@ uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     # Can be used wherever a "file-like" object is accepted:
     csv.reader(uploaded_file, delimiter=',', quotechar='"')
-    dataframe = pd.read_csv(uploaded_file)
+    columns = ['location', 'campaign', 'spend_date', 'spend']
+    dataframe = pd.read_csv(uploaded_file, header=0, names=columns)
     st.write(dataframe)
-    print(dataframe)
     if st.button(label='Upload File'):
-        print(dataframe)
-        # write_pandas(conn, 
-        #              df=dataframe, 
-        #              table_name='FACT_SPEND_TEST', 
-        #              database=st.secrets['snowflake']['database'], 
-        #              schema=st.secrets['snowflake']['schema'])
+        write_pandas(conn, 
+                     df=dataframe, 
+                     table_name='FACT_SPEND_TEST', 
+                     database=st.secrets['snowflake']['database'], 
+                     schema=st.secrets['snowflake']['schema'])
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
