@@ -39,6 +39,7 @@ if uploaded_file is not None:
     csv.reader(uploaded_file, delimiter=',', quotechar='"')
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
+    print(dataframe)
     if st.button(label='Upload File'):
         print(dataframe)
         # write_pandas(conn, 
