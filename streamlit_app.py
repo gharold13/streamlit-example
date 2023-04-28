@@ -38,7 +38,7 @@ if uploaded_file is not None:
     dataframe = pd.read_csv(uploaded_file)
     st.write(dataframe)
     if st.button(label='Upload File'):
-        write_pandas(conn, uploaded_file, 'FACT_SPEND_TEST')
+        write_pandas(conn, dataframe, 'FACT_SPEND_TEST')
 
 #df = run_query("SELECT * from FOOD_INSPECTIONS_FULL")
 
